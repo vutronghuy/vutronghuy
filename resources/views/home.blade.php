@@ -242,8 +242,8 @@
                     <i class='bx bxs-star-half'></i>
             <h2>Thanh Cong</h2>
             <p>Student in Xay Dung</p>
+           
         </div>
-
     </section>
     {{-- update new section --}}
     {{-- <section class="Update-news">
