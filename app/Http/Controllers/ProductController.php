@@ -45,7 +45,7 @@ class ProductController extends Controller
             $input['image'] = "$profileImage";
         }
         Product::create($input);
-        return redirect()->route('index')->with('ok','Product created ok');
+        return redirect()->route('index')->with('ok','Product created successfully!!');
     }
 
     /**
@@ -84,7 +84,7 @@ class ProductController extends Controller
             unset($input['image']);
         }
         $product->update($input);
-        return redirect()->route('index')->with('ok','Product updated ok');
+        return redirect()->route('index')->with('ok','Product updated successfully!!');
     }
 
     /**
@@ -93,6 +93,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('index')->with('ok','Product deleted ok');
+        return redirect()->route('index')->with('ok','Product deleted successfully!!');
     }
 }
