@@ -1,0 +1,11 @@
+@extends('layout')
+@section('content')
+asdsaddadddsd
+asd
+asd
+<div>
+    asdsaddadddsdasd
+    asd
+    asd
+</div>
+@endsection

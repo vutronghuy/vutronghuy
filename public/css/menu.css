@@ -122,10 +122,11 @@ section{
   grid-template-columns: repeat(auto-fit, minmax(260px, auto));
   gap: 2rem;
 }
+/* img general */
 .row {
   position: relative;
   transition: all .40s;
-
+  border: 1px solid black;
 }
 .row img{
   width: 100%;
@@ -133,6 +134,77 @@ section{
   transition: all .40s;
 }
 .row img:hover{
+  transform: scale(0.9);
+}
+/* img2 row1*/
+.row1 {
+  position: relative;
+  transition: all .40s;
+  border: 1px solid black;
+}
+.row1 img{
+  width: 100%;
+  height: 67%;
+  transition: all .40s;
+}
+.row1 img:hover{
+  transform: scale(0.9);
+}
+
+/* img1 row2 */
+.row2 {
+  position: relative;
+  transition: all .40s;
+  border: 1px solid black;
+}
+.row2 img{
+  width: 100%;
+  height: 67%;
+  transition: all .40s;
+}
+.row2 img:hover{
+  transform: scale(0.9);
+}
+/* img6 row3 */
+.row3 {
+  position: relative;
+  transition: all .40s;
+  border: 1px solid black;
+}
+.row3 img{
+  width: 100%;
+  height: 66%;
+  transition: all .40s;
+}
+.row3 img:hover{
+  transform: scale(0.9);
+}
+/* img5 row4 */
+.row4 {
+  position: relative;
+  transition: all .40s;
+  border: 1px solid black;
+}
+.row4 img{
+  width: 100%;
+  height: 66%;
+  transition: all .40s;
+}
+.row4 img:hover{
+  transform: scale(0.9);
+}
+/* img8 row5 */
+.row5 {
+  position: relative;
+  transition: all .40s;
+  border: 1px solid black;
+}
+.row5 img{
+  width: 100%;
+  height: 67%;
+  transition: all .40s;
+}
+.row5 img:hover{
   transform: scale(0.9);
 }
 .product-text h2{
@@ -202,6 +274,11 @@ font-weight: 700;
   grid-template-columns: repeat(auto-fit, minmax(160px, auto));
   gap: 3rem;
 }
+.contact-inf{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+  
+}
 .first-info img{
   width: 140px;
   height: auto;
@@ -215,6 +292,10 @@ font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 10px;
+}
+.third img{
+  width: 140px;
+  height: auto;
 }
 .contact-info p{
   color: #2c2c2c;
