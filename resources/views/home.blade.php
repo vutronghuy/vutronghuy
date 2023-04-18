@@ -24,7 +24,7 @@
         <ul class="navmenu">
             <li><a href="/home">Home</a></li>
             <li><a href="/menu">Menu</a></li>
-            <li><a href="/">About</a></li>  
+            <li><a href="/about">About</a></li>  
             <li><a href="/cart">Cart</a></li>
             <li><a href="/">Contact</a></li>
         </ul>
@@ -242,8 +242,8 @@
                     <i class='bx bxs-star-half'></i>
             <h2>Thanh Cong</h2>
             <p>Student in Xay Dung</p>
+           
         </div>
-
     </section>
     {{-- update new section --}}
     {{-- <section class="Update-news">

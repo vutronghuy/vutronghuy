@@ -271,6 +271,8 @@ header.sticky{
     font-size: 14px;
     font-weight: 600;
 }
+/* customer reviews */
+
 .reviews{
     text-align: center;
 }
@@ -295,6 +297,7 @@ font-weight: 700;
     line-height: 25px;
     margin-bottom: 10px;
 }
+
 /* contact section */
 .contact{
     background-color: blanchedalmond;
@@ -335,7 +338,7 @@ font-weight: 700;
 .social-icon i{
     color: #565656;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 20px;
     transition: all .42s;
 }
 .social-icon i:hover{
