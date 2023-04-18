@@ -56,7 +56,7 @@
 
         <div class="products">
             {{-- product1 --}}
-            <div class="row">
+            <div class="row2">
                 <img src="image/best.webp" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -77,7 +77,7 @@
                 </div>
             </div>
             {{-- product2 --}}
-            <div class="row">
+            <div class="row1">
                 <img src="image/lover.jpeg" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -140,7 +140,7 @@
                 </div>
             </div>
             {{-- product5 --}}
-            <div class="row">
+            <div class="row4">
                 <img src="image/my.png" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -161,7 +161,7 @@
                 </div>
             </div>
             {{-- product6 --}}
-            <div class="row">
+            <div class="row3">
                 <img src="image/Bugers.jpg" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -203,7 +203,7 @@
                 </div>
             </div>
             {{-- product8 --}}
-            <div class="row">
+            <div class="row5">
                 <img src="image/lote.png" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -232,14 +232,18 @@
             </div>
         </div>
     </section>
+
     <section class="contact">
         <div class="contact-info">
+            <div class="second">
+                <img src="image/king.png" alt="">
+            </div>
             <div class="second">
                 <img src="image/lo.png" alt="">
             </div>
             <div class="first-info">
                 <img src="image/logo.png" alt="">
-
+                
                 <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
                 <p>024667477663</p>
                 <p>fastfood24@gmail.com</p>

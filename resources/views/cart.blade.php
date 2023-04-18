@@ -101,6 +101,10 @@
 {{-- footer --}}
 <section class="contact">
     <div class="contact-info">
+        <div class="contact-info">
+            <div class="second">
+                <img src="image/king.png" alt="">
+            </div>
         <div class="second">
             <img src="image/lo.png" alt="">
         </div>

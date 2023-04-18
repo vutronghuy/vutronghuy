@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/trending.css">
+    <link rel="icon" href="image/lo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -49,15 +50,18 @@
                     ac elementum neque semper. Nulla facilisi. Mauris bibendum augue lectus, 
                     sed placerat turpis rutrum sit amet. Nulla facilisi. Vivamus eu odio interdum, 
                     tempus nulla eu, fringilla libero. </p>
-				<p>Price: $99.99</p>
-            <select >
-                <option>Select Size</option>
-                <option>Big</option>
-                <option>Normal</option>
-                <option>Small</option>
-            </select>
-            <input type="number" value="1">
-            <a href="" class="btn ">Add To Cart</a>
+				<p>Price: $99.99</p>       
+                  <div>
+                      <select style="margin-bottom: 20px;">
+                          <option>Select Size</option>
+                          <option>Big</option>
+                          <option>Normal</option>
+                          <option>Small</option>
+                      </select>
+                      <input type="number" value="1">      
+                  </div>
+                  <a href="" class="btn">Add To Cart</a>
+            </div>                              
         </div>
     </div>
     {{-- title --}}
@@ -69,7 +73,7 @@
     <section class="bestseller-product" id="bestseller">
         <div class="products">
             {{-- product1 --}}
-            <div class="row">
+            <div class="row2">
                 <img src="image/best.webp" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -90,7 +94,7 @@
                 </div>
             </div>
             {{-- product2 --}}
-            <div class="row">
+            <div class="row1">
                 <img src="image/lover.jpeg" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -111,7 +115,7 @@
                 </div>
             </div> 
             {{-- product3 --}}
-             <div class="row">
+             <div class="row5">
                 <img src="image/nhom.jpg" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -132,7 +136,7 @@
                 </div>
             </div> 
             {{-- product4 --}}
-            <div class="row">
+            <div class="row6">
                 <img src="image/egg.jpg" alt="">
                 <div class="product-text">
                     <h2>BestSellers</h2>
@@ -155,46 +159,51 @@
             
         </div>
     </section> 
-    <section class="contact">
-        <div class="contact-info"> 
-            <div class="second">
-                <img src="image/lo.png" alt="">
-            </div>
-            <div class="first-info">
-                <img src="image/logo.png" alt="">
-                
-                <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
-                <p>024667477663</p>
-                <p>fastfood24@gmail.com</p>
+    <div>
 
-                <div class="social-icon">
-                    <a href="/"><i class='bx bxl-facebook'></i></a>
-                    <a href="/"><i class='bx bxl-twitter'></i></a>
-                    <a href="/"><i class='bx bxl-instagram'></i></a>
-                    <a href="/"><i class='bx bxl-youtube'></i></a>
-                    <a href="/"><i class='bx bxl-linkedin'></i></a>
+        <section class="contact">
+            <div class="contact-info">
+                <div class="second">
+                    <img src="image/king.png" alt="">
+                </div>
+                <div class="second">
+                    <img src="image/lo.png" alt="">
+                </div>
+                <div class="first-info">
+                    <img src="image/logo.png" alt="">
+                    
+                    <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
+                    <p>024667477663</p>
+                    <p>fastfood24@gmail.com</p>
+    
+                    <div class="social-icon">
+                        <a href="/"><i class='bx bxl-facebook'></i></a>
+                        <a href="/"><i class='bx bxl-twitter'></i></a>
+                        <a href="/"><i class='bx bxl-instagram'></i></a>
+                        <a href="/"><i class='bx bxl-youtube'></i></a>
+                        <a href="/"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+                <div class="second-info">
+                    <h4>Support</h4>
+                    <p>Contact us</p>
+                    <p>About page</p>
+                    <p>Privacy</p>
+                    <p>Question</p>
+                    <p>Policy</p>
+    
+                </div>
+                <div class="five">
+                    <h4>Subcribe</h4>
+                    <p>Recive updates, hot pick, bestseller</p>
+                    <p>See you agains</p>
                 </div>
             </div>
-            <div class="second-info">
-                <h4>Support</h4>
-                <p>Contact us</p>
-                <p>About page</p>
-                <p>Privacy</p>
-                <p>Question</p>
-                <p>Policy</p>
-
-            </div>
-            <div class="five">
-                <h4>Subcribe</h4>
-                <p>Recive updates, hot pick, bestseller</p>
-                <p>See you agains</p>
-            </div>
+        </section>
+    
+        <div class="end-text">
+            <p>Copyright by KFC @2023 VietNam</p>
         </div>
-    </section>
-
-    <div class="end-text">
-        <p>Copyright by KFC @2023 VietNam</p>
-    </div> 
 </body>
 
 </html>

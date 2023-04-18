@@ -20,7 +20,7 @@
                     <option>Small</option>
                 </select>
             </div>
-            <button onclick="addToCart(item1)">Add To Card</button>
+            <button>Add To Card</button>
         </div>
     </div>
     
