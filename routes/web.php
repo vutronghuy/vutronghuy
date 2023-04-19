@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 Route::get('/home', function () {
-    return view('homepage');
+    return view('frontend.homepage');
 }) ->name('home');
 Route::get('/trending', function () {
     return view('trending');
@@ -31,7 +31,6 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
-
 Route::get('/test', function () { 
      return view('test');
 });
@@ -41,12 +40,14 @@ Route::get('/about', function () {
 Route::get('/contact', function () { 
     return view('contact');
 });
-Route::get('login', function () { 
-    return view('auth.login');
-})->name('login');
-Route::get('register', function () { 
-    return view('auth.register');
-})->name('register');
+Route::get('/login', function () { 
+    return view('login');
+});
+Route::get('/register', function () { 
+    return view('register');
+});
+
+
 
 // Auth::routes();
 
