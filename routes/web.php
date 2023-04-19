@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage');
 });
 Route::get('/home', function () {
-    return view('home');
-});
+    return view('homepage');
+}) ->name('home');
 Route::get('/trending', function () {
     return view('trending');
 });
@@ -38,3 +38,10 @@ Route::get('/test', function () {
 Route::get('/about', function () { 
     return view('about');
 });
+Route::get('login', function () { 
+    return view('auth.login');
+})->name('login');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
