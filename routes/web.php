@@ -38,6 +38,9 @@ Route::get('/test', function () {
 Route::get('/about', function () { 
     return view('about');
 });
+Route::get('/contact', function () { 
+    return view('contact');
+});
 Route::get('login', function () { 
     return view('auth.login');
 })->name('login');
