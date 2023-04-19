@@ -58,7 +58,7 @@ class CartController extends Controller
             $cartItems[$productId]['quantity'] = $quantity;
         }
         session()->put('cart.items', $cartItems);
-        return redirect()->back()->with('success', 'Cart updated successfully!');
+        return redirect()->back()->with('success', 'Cart updated successfully!!');
     }
 
     /**
@@ -69,6 +69,6 @@ class CartController extends Controller
         $cartItems = session()->get('cart.items');
         unset($cartItems[$productId]);
         session()->put('cart.items', $cartItems);
-        return redirect()->back()->with('success', 'Product removed from cart successfully!');
+        return redirect()->back()->with('success', 'Product removed from cart successfully!!');
     }
 }
