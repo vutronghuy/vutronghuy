@@ -243,7 +243,7 @@
             </div>
             <div class="first-info">
                 <img src="image/logo.png" alt="">
-                
+
                 <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
                 <p>024667477663</p>
                 <p>fastfood24@gmail.com</p>

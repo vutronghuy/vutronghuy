@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->parent_id = $request->parent_id;
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!!');
+        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
     }
 
     /**
