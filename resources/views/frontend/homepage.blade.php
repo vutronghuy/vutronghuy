@@ -3,7 +3,7 @@
 
 <head>
     <title>FastFood</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap"
@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="icon" href="image/king.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -24,19 +26,29 @@
         <ul class="navmenu">
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="/menu">Menu</a></li>
-            <li><a href="/about">About</a></li>  
+            <li><a href="/about">About</a></li>
             <li><a href="/cart">Cart</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
 
         <div class="nav-icon">
             <a href="/"><i class='bx bx-search'></i></a>
-            <a href="/login"><i class='bx bx-user'></i></a>
             <a href="/cart"><i class='bx bx-cart'></i></a>
-            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <a href="/login"><i class='bx bx-user'></i></a>
+                </button>
+                {{-- <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a> --}}
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </header>
-
     <section class="main-home">
         <div class="main-text">
             <h5>Tuesday</h5>
@@ -54,7 +66,7 @@
     {{-- bestseller product --}}
     <section class="bestseller-product" id="trending">
         <div class="center-text">
-            <h1>                                   </h1>
+            <h1> </h1>
             <h2>BestSeller <span>Products</span></h2>
         </div>
 
@@ -235,18 +247,18 @@
             <h3>Client Reviews</h3>
             <img src="image/anh.jpg" alt="">
             <p>kfc good, i like it </p>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star-half'></i>
             <h2>Thanh Cong</h2>
             <p>Student in Xay Dung</p>
-           
+
         </div>
     </section>
     {{-- update new section --}}
-    {{-- <section class="Update-news">
+    <section class="Update-news">
         <div class="up-center-text">
             <h2>New Updates</h2>
         </div>
@@ -257,7 +269,7 @@
                 <h5></h5>
             </div>
         </div>
-    </section> --}}
+    </section>
     {{-- contact section --}}\
     <section class="contact">
         <div class="contact-info">
@@ -269,7 +281,7 @@
             </div>
             <div class="first-info">
                 <img src="image/logo.png" alt="">
-                
+
                 <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
                 <p>024667477663</p>
                 <p>fastfood24@gmail.com</p>

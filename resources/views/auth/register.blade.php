@@ -1,3 +1,4 @@
+{{-- @extends('frontend.homepage') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,29 +12,37 @@
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="/register/store" method="POST">
+                    @csrf
                     <h2>Register</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="name" required>
-                        <label for="">Name</label>
+                        <input name="name" type="text" required>
+                        <label for="name">Name</label>
                     </div>
+
+{{-- 
+                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror --}}
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
-                        <label for="">Email</label>
+                        <input name="email" type="email" required>
+                        <label for="email">Email</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Password</label>
+                        <input name="password" type="password" required>
+                        <label for="password">Password</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Confirm Password</label>
+                        <input name="password_confirnmation" type="password" required>
+                        <label for="password_confirnmation">Confirm Password</label>
                     </div>
-                    <button>Sign up</button>
+                    <button type="submit">{{ __('Register') }}</button>
                     
                 </form>
             </div>
