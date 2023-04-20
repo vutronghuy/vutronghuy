@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,41 +15,48 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('auth.login');
 });
 Route::get('/home', function () {
     return view('frontend.homepage');
 }) ->name('home');
 Route::get('/trending', function () {
-    return view('trending');
+    return view('frontend.trending');
 });
 Route::get('/menu', function () {
-    return view('menu');
+    return view('frontend.menu');
 });
 Route::get('/product', function () {
-    return view('product');
+    return view('frontend.product');
 });
 Route::get('/cart', function () {
-    return view('cart');
+    return view('frontend.cart');
 });
 Route::get('/test', function () { 
      return view('test');
 });
 Route::get('/about', function () { 
-    return view('about');
+    return view('frontend.about');
 });
 Route::get('/contact', function () { 
-    return view('contact');
-});
-Route::get('/login', function () { 
-    return view('login');
-});
-Route::get('/register', function () { 
-    return view('register');
+    return view('frontend.contact');
 });
 
+// Route::get('/login', function () { 
+//     return view('auth.login');
+// }) -> name('login');
+
+Route::get('/register', function () { 
+    return view('auth.register');
+});
+
+Route::get('logout', function () {
+    return view('auth.login');
+}) -> name('logout');
+
+Route::post('/register/store', [UserController::class, 'store']);
 
 
 // Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
