@@ -42,7 +42,7 @@
                         <input name="password_confirnmation" type="password" required>
                         <label for="password_confirnmation">Confirm Password</label>
                     </div>
-                    <button type="submit">{{ __('Register') }}</button>
+                    <button type="submit">{{ _('Register') }}</button>
                     
                 </form>
             </div>
