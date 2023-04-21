@@ -32,23 +32,20 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('frontend.cart');
 });
-Route::get('/test', function () { 
+
+Route::get('/test', function () {
+Route::get('/test', function () {
      return view('test');
 });
-Route::get('/about', function () { 
+Route::get('/about', function () {
+    return view('about');
+Route::get('/about', function () {
     return view('frontend.about');
 });
-Route::get('/contact', function () { 
-    return view('frontend.contact');
+Route::get('/contact', function () {
+    return view('contact');
 });
-
-// Route::get('/login', function () { 
-//     return view('auth.login');
-// }) -> name('login');
-
-Route::get('/register', function () { 
-    return view('auth.register');
-});
+Route::get('login', function () {
 
 Route::get('logout', function () {
     return view('auth.login');
@@ -59,4 +56,4 @@ Route::post('/register/store', [UserController::class, 'store']);
 
 // Auth::routes();
 
-// Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

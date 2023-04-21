@@ -38,6 +38,47 @@
         </div>
     </section>
 
+    <section class="filter">
+        <div>
+            <div class="form-group">
+                <label for="sort_by">Sort By:</label>
+                <select name="sort_by" class="form-control">
+                    <option value="name_asc">Name (A-Z)</option>
+                    <option value="name_desc">Name (Z-A)</option>
+                    <option value="price_asc">Price (Low to High)</option>
+                    <option value="price_desc">Price (High to Low)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+
+            <div class="row">
+            @foreach ($products as $product)
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{ $product->image }}" alt="{{ $product->name }}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ $product->name }}</h4>
+                            <p class="card-text">{{ $product->description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="{{ route('cart.add', ['product' => $product->id]) }}" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
+                                </div>
+                                <small class="text-muted">${{ $product->price }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+            <div class="row justify-content-center">
+                {{ $products->links() }}
+            </div>
+        </div>
+    </section>
+
     <section class="bestseller-product" id="bestseller">
         <div class="center-text">
             <h1>BestSeller <span>Products</span></h1>
@@ -244,7 +285,7 @@
             </div>
             <div class="first-info">
                 <img src="image/logo.png" alt="">
-                
+
                 <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
                 <p>024667477663</p>
                 <p>fastfood24@gmail.com</p>
