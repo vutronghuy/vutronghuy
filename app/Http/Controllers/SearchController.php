@@ -16,7 +16,7 @@ class SearchController extends Controller
         $products = Product::where('name', 'LIKE', '%' . $query . '%')
                             ->orWhere('description', 'LIKE', '%' . $query . '%')
                             ->get();
-        return view('search.index', compact('products', 'query'));
+        return view('search.index', compact('products', 'query')); 
     }
 
     /**

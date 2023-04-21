@@ -29,7 +29,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::findOrFail($request->product_id);
+        $cartItems = session()->get('cart.items');
+        $cartItems[$product->id] = [
+            'product' => $product,
+            'quantity' => isset($cartItems[$product->id]) ? $cartItems[$product->id]['quantity'] + $request->quantity : $request->quantity
+        ];
+        session()->put('cart.items', $cartItems);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
     /**

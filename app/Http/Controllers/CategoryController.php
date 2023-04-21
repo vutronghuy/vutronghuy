@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->parent_id = $request->parent_id;
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!!');
+        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
     }
 
     /**
@@ -43,6 +43,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+        $category = Category::findOrFail($category);
+        $products = app('App\Http\Controllers\ProductController')->filter(request()->merge(['category' => $category->id]));
+
+
         $category->load('products');
         return view('categories.show', compact('category'));
     }
