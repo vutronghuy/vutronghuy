@@ -26,7 +26,7 @@
     </nav>
 
     <div class="nav-icons">
-        <a href="/"><i class='bx bx-user'></i></a>
+        <a href="/login"><i class='bx bx-user'></i></a>
         <a href="/cart"><i class='bx bx-cart'></i></a>
         <div class="bx bx-menu" id="menu-icon"></div>
     </div>

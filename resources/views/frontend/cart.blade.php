@@ -22,7 +22,7 @@
             <li><a href="/menu">Menu</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/cart">Cart</a></li>
-            <li><a href="/">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <div class="nav-icon">

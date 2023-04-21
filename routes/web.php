@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,48 +15,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('auth.login');
 });
 Route::get('/home', function () {
-    return view('homepage');
+    return view('frontend.homepage');
 }) ->name('home');
 Route::get('/trending', function () {
-    return view('trending');
+    return view('frontend.trending');
 });
 Route::get('/menu', function () {
-    return view('menu');
+    return view('frontend.menu');
 });
 Route::get('/product', function () {
-    return view('product');
+    return view('frontend.product');
 });
 Route::get('/cart', function () {
-    return view('cart');
+    return view('frontend.cart');
 });
 
+Route::get('/test', function () {
 Route::get('/test', function () {
      return view('test');
 });
 Route::get('/about', function () {
     return view('about');
+Route::get('/about', function () {
+    return view('frontend.about');
 });
-
-
-Route::get('/admin','App\Http\Controllers\ProductController@index')->name('index');
-Route::get('/create','App\Http\Controllers\ProductController@create')->name('create');
-Route::post('store/','App\Http\Controllers\ProductController@store')->name('store');
-Route::get('show/{product}','App\Http\Controllers\ProductController@show')->name('show');
-Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name('edit');
-Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
-Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
-
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('login', function () {
+
+Route::get('logout', function () {
     return view('auth.login');
-})->name('login');
+}) -> name('logout');
+
+Route::post('/register/store', [UserController::class, 'store']);
+
 
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
