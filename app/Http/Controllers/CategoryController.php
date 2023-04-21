@@ -43,6 +43,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+        $category = Category::findOrFail($category);
+        $products = app('App\Http\Controllers\ProductController')->filter(request()->merge(['category' => $category->id]));
+
+
         $category->load('products');
         return view('categories.show', compact('category'));
     }

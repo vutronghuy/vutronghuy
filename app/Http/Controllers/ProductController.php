@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -35,7 +36,7 @@ class ProductController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg.gif,svg|max:2048', 
+            'image' => 'required|image|mimes:jpeg,png,jpg.gif,svg|max:2048',
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {
@@ -45,7 +46,7 @@ class ProductController extends Controller
             $input['image'] = "$profileImage";
         }
         Product::create($input);
-        return redirect()->route('index')->with('ok','Product created successfully!!');
+        return redirect()->route('menu')->with('ok','Product created successfully!!');
     }
 
     /**
@@ -94,5 +95,33 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('index')->with('ok','Product deleted successfully!!');
+    }
+
+    public function filter(Request $request)
+    {
+        $categories = Category::all();
+        $products = Product::query();
+
+        // Check if a category filter was selected
+        if ($request->has('category_id')) {
+            $categoryId = $request->input('category_id');
+            $products->where('category_id', $categoryId);
+        }
+
+        // Check if a price range filter was selected
+        if ($request->has('price_range')) {
+            $priceRange = $request->input('price_range');
+            $priceRangeParts = explode('-', $priceRange);
+            $minPrice = $priceRangeParts[0];
+            $maxPrice = $priceRangeParts[1];
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
+        $products = $products->paginate(10);
+
+        return view('menu', [
+            'categories' => $categories,
+            'products' => $products,
+        ]);
     }
 }

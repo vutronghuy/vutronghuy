@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card-body">
-            <a href="{{ url('/product/create') }}" class="btn btn-info btn-sm">
+            <a href="{{ url('/create') }}" class="btn btn-info btn-sm">
                 Create new
             </a>
 
