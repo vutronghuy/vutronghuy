@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage');
 });
 Route::get('/home', function () {
-    return view('home');
-});
+    return view('homepage');
+}) ->name('home');
 Route::get('/trending', function () {
     return view('trending');
 });
@@ -39,6 +39,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
+
 Route::get('/admin','App\Http\Controllers\ProductController@index')->name('index');
 Route::get('/create','App\Http\Controllers\ProductController@create')->name('create');
 Route::post('store/','App\Http\Controllers\ProductController@store')->name('store');
@@ -46,3 +47,15 @@ Route::get('show/{product}','App\Http\Controllers\ProductController@show')->name
 Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name('edit');
 Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
 Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
+
+Route::get('/contact', function () { 
+    return view('contact');
+});
+Route::get('login', function () { 
+    return view('auth.login');
+})->name('login');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ 
