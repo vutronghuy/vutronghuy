@@ -32,20 +32,20 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('frontend.cart');
 });
+Route::get('/register', function () {
+    return view('auth.register');
+});
 
-Route::get('/test', function () {
 Route::get('/test', function () {
      return view('test');
 });
 Route::get('/about', function () {
-    return view('about');
-Route::get('/about', function () {
     return view('frontend.about');
 });
 Route::get('/contact', function () {
-    return view('contact');
+    return view('frontend.contact');
 });
-Route::get('login', function () {
+
 
 Route::get('logout', function () {
     return view('auth.login');

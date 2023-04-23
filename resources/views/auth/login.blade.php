@@ -1,3 +1,4 @@
+{{-- @extends('frontend.hompage') --}}
 <!DOCTYPE html>
 <html lang="en">
 
