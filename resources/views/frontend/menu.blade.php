@@ -4,9 +4,9 @@
 <head>
     <title>menu</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="css/menu.css"> 
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/style.css">
-     
+
      <link rel="icon" href="image/lo.png" type="image/x-icon">
 </head>
 
@@ -29,8 +29,8 @@
             <a href="/cart"><i class='bx bx-cart'></i></a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
-    </header> 
-   
+    </header>
+
 
     <section class="main-menu">
         <div class="down-arrow">
@@ -40,17 +40,37 @@
 
     <section class="filter">
         <div>
-            <div class="form-group">
-                <label for="sort_by">Sort By:</label>
-                <select name="sort_by" class="form-control">
-                    <option value="name_asc">Name (A-Z)</option>
-                    <option value="name_desc">Name (Z-A)</option>
-                    <option value="price_asc">Price (Low to High)</option>
-                    <option value="price_desc">Price (High to Low)</option>
-                </select>
-            </div>
+            <form method="GET" action="{{ route('menu') }}">
+                <div class="form-group">
+                    <label for="category_id">Category:</label>
+                    <select name="category_id" class="form-control">
+                        <option value="">All</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Filter</button>
+                <div class="form-group">
+                    <label for="price_range">Price Range:</label>
+                    <select name="price_range" class="form-control">
+                        <option value="">All</option>
+                        <option value="0-10">0 - 10</option>
+                        <option value="10-50">10 - 50</option>
+                        <option value="50-100">50 - 100</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sort_by">Sort By:</label>
+                    <select name="sort_by" class="form-control">
+                        <option value="name_asc">Name (A-Z)</option>
+                        <option value="name_desc">Name (Z-A)</option>
+                        <option value="price_asc">Price (Low to High)</option>
+                        <option value="price_desc">Price (High to Low)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Filter</button>
             </form>
 
             <div class="row">

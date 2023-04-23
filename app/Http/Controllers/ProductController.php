@@ -97,31 +97,49 @@ class ProductController extends Controller
         return redirect()->route('index')->with('ok','Product deleted successfully!!');
     }
 
-    public function filter(Request $request)
+    public function menu(Request $request)
     {
-        $categories = Category::all();
-        $products = Product::query();
+        $query = Product::query();
 
-        // Check if a category filter was selected
         if ($request->has('category_id')) {
-            $categoryId = $request->input('category_id');
-            $products->where('category_id', $categoryId);
+            $category_id = $request->input('category_id');
+            if (!empty($category_id)) {
+                $query->where('category_id', $category_id);
+            }
         }
 
-        // Check if a price range filter was selected
         if ($request->has('price_range')) {
-            $priceRange = $request->input('price_range');
-            $priceRangeParts = explode('-', $priceRange);
-            $minPrice = $priceRangeParts[0];
-            $maxPrice = $priceRangeParts[1];
-            $products->whereBetween('price', [$minPrice, $maxPrice]);
+            $price_range = $request->input('price_range');
+            if (!empty($price_range)) {
+                $range = explode('-', $price_range);
+                $query->whereBetween('price', $range);
+            }
         }
 
-        $products = $products->paginate(10);
+        $sort_by = $request->input('sort_by');
 
-        return view('menu', [
-            'categories' => $categories,
-            'products' => $products,
-        ]);
+        switch ($sort_by) {
+            case 'name_asc':
+                $query->orderBy('name', 'asc');
+                break;
+            case 'name_desc':
+                $query->orderBy('name', 'desc');
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $products = $query->paginate(10);
+        $categories = Category::all();
+
+        return view('frontend.menu', compact('products', 'categories'));
     }
+
 }
