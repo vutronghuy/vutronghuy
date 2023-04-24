@@ -46,7 +46,7 @@ class ProductController extends Controller
             $input['image'] = "$profileImage";
         }
         Product::create($input);
-        return redirect()->route('menu')->with('ok','Product created successfully!!');
+        return redirect()->route('menu')->with('ok','Product created successfully!!'); 
     }
 
     /**

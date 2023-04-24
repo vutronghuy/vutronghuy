@@ -46,7 +46,7 @@
                     <select name="category_id" class="form-control">
                         <option value="">All</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ request()->input('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -55,46 +55,43 @@
                     <label for="price_range">Price Range:</label>
                     <select name="price_range" class="form-control">
                         <option value="">All</option>
-                        <option value="0-10">0 - 10</option>
-                        <option value="10-50">10 - 50</option>
-                        <option value="50-100">50 - 100</option>
+                        <option value="0-10" {{ request()->input('price_range') === '0-10' ? 'selected' : '' }}>0 - 10</option>
+                        <option value="10-50" {{ request()->input('price_range') === '10-50' ? 'selected' : '' }}>10 - 50</option>
+                        <option value="50-100" {{ request()->input('price_range') === '50-100' ? 'selected' : '' }}>50 - 100</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="sort_by">Sort By:</label>
                     <select name="sort_by" class="form-control">
-                        <option value="name_asc">Name (A-Z)</option>
-                        <option value="name_desc">Name (Z-A)</option>
-                        <option value="price_asc">Price (Low to High)</option>
-                        <option value="price_desc">Price (High to Low)</option>
+                        <option value="name_asc" {{ request()->input('sort_by') === 'name_asc' ? 'selected' : '' }}>Name (A - Z)</option>
+                        <option value="name_desc" {{ request()->input('sort_by') === 'name_desc' ? 'selected' : '' }}>Name (Z - A)</option>
+                        <option value="price_asc" {{ request()->input('sort_by') === 'price_asc' ? 'selected' : '' }}>Price (Low to High)</option>
+                        <option value="price_desc" {{ request()->input('sort_by') === 'price_desc' ? 'selected' : '' }}>Price (High to Low)</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </form>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
 
+            </form>
             <div class="row">
-            @foreach ($products as $product)
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="{{ $product->image }}" alt="{{ $product->name }}">
+                @foreach ($products as $product)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                         <div class="card-body">
-                            <h4 class="card-title">{{ $product->name }}</h4>
+                            <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ $product->description }}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="{{ route('products.show', ['product' => $product->id]) }}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    <a href="{{ route('cart.add', ['product' => $product->id]) }}" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
-                                </div>
-                                <small class="text-muted">${{ $product->price }}</small>
-                            </div>
+                            <h6 class="card-price">Price: ${{ $product->price }}</h6>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url('products.show', $product->id) }}" class="btn btn-primary">View Details</a>
                         </div>
                     </div>
                 </div>
-            @endforeach
-            </div>
-            <div class="row justify-content-center">
-                {{ $products->links() }}
+                @endforeach
             </div>
         </div>
     </section>

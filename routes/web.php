@@ -64,4 +64,4 @@ Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name
 Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
 Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
 
-Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu');
+Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu'); 
