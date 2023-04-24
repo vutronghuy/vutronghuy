@@ -39,10 +39,6 @@
                     aria-expanded="false">
                     <a href="/login"><i class='bx bx-user'></i></a>
                 </button>
-                {{-- <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a> --}}
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                 </ul>
@@ -86,6 +82,7 @@
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
+                    <i class='bx bx-heart'></i>
                 </div>
                 <div class="price">
                     <h4>combo salat lover</h4>
@@ -119,15 +116,16 @@
                 <div class="product-text">
                     <h2>BestSellers</h2>
                 </div>
-                <div class="heart-icon">
+                {{-- <div class="heart-icon">
                     <i class='bx bx-heart'></i>
-                </div>
+                </div> --}}
                 <div class="ratting">
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star-half'></i>
+                    <i class='bx bx-heart'></i>
                 </div>
                 <div class="price">
                     <h4>combo burger and Chicken</h4>
@@ -140,7 +138,7 @@
                 <div class="product-text">
                     <h2>BestSellers</h2>
                 </div>
-                <div class="heart-icon">
+                <div class="heart-icon1">
                     <i class='bx bx-heart'></i>
                 </div>
                 <div class="ratting">

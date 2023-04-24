@@ -253,6 +253,11 @@ header.sticky{
     right: 0;
     font-size: 20px;
 }
+.heart-icon1{
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
 .heart-icon:hover{
     color: red;
 }
