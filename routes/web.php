@@ -39,6 +39,7 @@ Route::get('/register', function () {
 Route::get('/test', function () {
      return view('test');
 });
+
 Route::get('/about', function () {
     return view('frontend.about');
 });
@@ -57,3 +58,13 @@ Route::post('/register/store', [UserController::class, 'store']);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin','App\Http\Controllers\ProductController@index')->name('index');
+Route::get('/create','App\Http\Controllers\ProductController@create')->name('create');
+Route::post('store/','App\Http\Controllers\ProductController@store')->name('store');
+Route::get('show/{product}','App\Http\Controllers\ProductController@show')->name('show');
+Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name('edit');
+Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
+Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
+
+Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu'); 
