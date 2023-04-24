@@ -80,14 +80,14 @@
                 @foreach ($products as $product)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                        <img src="/images/{{$product->image}}" width="250px">
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ $product->description }}</p>
                             <h6 class="card-price">Price: ${{ $product->price }}</h6>
-                        </div> 
+                        </div>
                         <div class="card-footer">
-                            <a href="{{ url('products.show', $product->id) }}" class="btn btn-primary">View Details</a>
+                            <a href="{{ route('show', $product->id) }}" class="btn btn-primary">View Details</a>
                         </div>
                     </div>
                 </div>
