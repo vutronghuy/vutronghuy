@@ -32,7 +32,7 @@
         </ul>
 
         <div class="nav-icon">
-            <a href="/"><i class='bx bx-search'></i></a>
+            <a href="#"><i class='bx bx-search'></i></a>
             <a href="/cart"><i class='bx bx-cart'></i></a>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"

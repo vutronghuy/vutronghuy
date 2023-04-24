@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <a href="{{url('/admin')}}" class="btn btn-primary">Back</a>
+        <a href="{{url('/menu')}}" class="btn btn-primary">Back</a>
     </div>
     <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
         @csrf
