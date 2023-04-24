@@ -1,5 +1,5 @@
 @extends('products.app')
-
+<link rel="stylesheet" href="css/index.css">
 @section('content')
     <div class="container">
         <div class="card-body">
@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr>
-                                <td><img src="/images/{{$product->image}}" alt=""></td>
+                                <td><img class="image" src="/images/{{$product->image}}" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>

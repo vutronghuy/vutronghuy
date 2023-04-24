@@ -123,19 +123,13 @@ section{
   gap: 2rem;
 }
 /* img general */
-.row {
-  position: relative;
-  transition: all .40s;
-  border: 1px solid black;
-}
+
 .row img{
   width: 100%;
   height: auto;
   transition: all .40s;
 }
-.row img:hover{
-  transform: scale(0.9);
-}
+
 /* img2 row1*/
 .row1 {
   position: relative;
@@ -151,86 +145,20 @@ section{
   transform: scale(0.9);
 }
 
-/* img1 row2 */
-.row2 {
-  position: relative;
-  transition: all .40s;
-  border: 1px solid black;
-}
-.row2 img{
-  width: 100%;
-  height: 67%;
-  transition: all .40s;
-}
-.row2 img:hover{
-  transform: scale(0.9);
-}
-/* img6 row3 */
-.row3 {
-  position: relative;
-  transition: all .40s;
-  border: 1px solid black;
-}
-.row3 img{
-  width: 100%;
-  height: 66%;
-  transition: all .40s;
-}
-.row3 img:hover{
-  transform: scale(0.9);
-}
-/* img5 row4 */
-.row4 {
-  position: relative;
-  transition: all .40s;
-  border: 1px solid black;
-}
-.row4 img{
-  width: 100%;
-  height: 66%;
-  transition: all .40s;
-}
-.row4 img:hover{
-  transform: scale(0.9);
-}
-/* img8 row5 */
-.row5 {
-  position: relative;
-  transition: all .40s;
-  border: 1px solid black;
-}
-.row5 img{
-  width: 100%;
-  height: 67%;
-  transition: all .40s;
-}
-.row5 img:hover{
-  transform: scale(0.9);
-}
-.product-text h2{
-  position: absolute;
-  top: 13px;
-  left: 13px;
-  color: aliceblue;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: upper;
-  background-color: green;
-  padding: 3px 10px;
-}
-.heart-icon{
+
+/* .heart-icon{
   position: absolute;
   right: 0;
   font-size: 20px;
-}
-.heart-icon:hover{
+} */
+/* .heart-icon:hover{
   color: red;
-}
+} */ */
 .ratting{
   color: orange;
   font-size: 18px;
 }
-.price h4{
+/* .price h4{
   color: black;
   font-size: 16px;
   text-transform: capitalize;
@@ -240,8 +168,8 @@ section{
   color: black;
   font-size: 14px;
   font-weight: 600;
-}
-.reviews{
+} */
+/* .reviews{
   text-align: center;
 }
 .reviews h3{
@@ -263,7 +191,7 @@ font-weight: 700;
   font-weight: 400;
   line-height: 25px;
   margin-bottom: 10px;
-}
+} */
 /* contact section */
 .contact{
   background-color: blanchedalmond;
@@ -358,3 +286,28 @@ select:focus{
 .page-btn span:hover{
   background: orange;
 }
+/* product */
+.menu-footer{
+  background-color: bisque;
+  text-align: center;
+  
+}
+.menu-footer .btn{
+  color: #f0aa1ff4;
+  border: 1px solid black;
+  background-color: blanchedalmond;
+}
+.menu-footer .btn:hover{
+  background-color: beige;
+  border: 1px solid black;
+  color: rgb(229, 187, 35);
+}
+.card-body{
+  background-color: bisque;
+}
+.ratting1{
+  color: orange;
+  font-size: 18px;
+  background-color: bisque;
+}
+

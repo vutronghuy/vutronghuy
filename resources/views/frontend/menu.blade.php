@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-     <link rel="icon" href="image/lo.png" type="image/x-icon">
+    <link rel="icon" href="image/lo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                 </ul>
             </div>
-            
+
         </div>
     </header>
 
@@ -46,260 +46,96 @@
             <a href="#bestseller" class="down"><i class='bx bxs-down-arrow-alt'></i></a>
         </div>
     </section>
-
-    <section class="filter">
-        <div>
-            <form method="GET" action="{{ route('menu') }}">
-                <div class="form-group">
-                    <label for="category_id">Category:</label>
-                    <select name="category_id" class="form-control">
-                        <option value="">All</option>
-                        @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{ request()->input('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="price_range">Price Range:</label>
-                    <select name="price_range" class="form-control">
-                        <option value="">All</option>
-                        <option value="0-10" {{ request()->input('price_range') === '0-10' ? 'selected' : '' }}>0 - 10</option>
-                        <option value="10-50" {{ request()->input('price_range') === '10-50' ? 'selected' : '' }}>10 - 50</option>
-                        <option value="50-100" {{ request()->input('price_range') === '50-100' ? 'selected' : '' }}>50 - 100</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="sort_by">Sort By:</label>
-                    <select name="sort_by" class="form-control">
-                        <option value="name_asc" {{ request()->input('sort_by') === 'name_asc' ? 'selected' : '' }}>Name (A - Z)</option>
-                        <option value="name_desc" {{ request()->input('sort_by') === 'name_desc' ? 'selected' : '' }}>Name (Z - A)</option>
-                        <option value="price_asc" {{ request()->input('sort_by') === 'price_asc' ? 'selected' : '' }}>Price (Low to High)</option>
-                        <option value="price_desc" {{ request()->input('sort_by') === 'price_desc' ? 'selected' : '' }}>Price (High to Low)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-
-            </form>
-            <div class="row">
-                @foreach ($products as $product)
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="/images/{{$product->image}}" width="250px">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->description }}</p>
-                            <h6 class="card-price">Price: ${{ $product->price }}</h6>
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ route('show', $product->id) }}" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
     <section class="bestseller-product" id="bestseller">
         <div class="center-text">
             <h1>BestSeller <span>Products</span></h1>
         </div>
-        <div class="titlefood">
-            <h2>All Products</h2>
-            <select>
-                <option>Burgers</option>
-                <option>Fried & Roasted</option>
-                <option>COMBO FOR SHARING</option>
-                <option>Fried Chicken</option>
-                <option>Drink</option>
-            </select>
-        </div>
 
+        {{-- Filter --}}
+        <section class="container-fluid">
+            
+                <form method="GET" action="{{ route('menu') }}">
+                    <div class="form-group">
+                        <label for="category_id">Category:</label>
+                        <select name="category_id" class="form-control">
+                            <option value="">All</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ request()->input('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="price_range">Price Range:</label>
+                        <select name="price_range" class="form-control">
+                            <option value="">All</option>
+                            <option value="0-10" {{ request()->input('price_range') === '0-10' ? 'selected' : '' }}>0 - 10
+                            </option>
+                            <option value="10-50" {{ request()->input('price_range') === '10-50' ? 'selected' : '' }}>10 -
+                                50</option>
+                            <option value="50-100" {{ request()->input('price_range') === '50-100' ? 'selected' : '' }}>50 -
+                                100</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="sort_by">Sort By:</label>
+                        <select name="sort_by" class="form-control">
+                            <option value="name_asc" {{ request()->input('sort_by') === 'name_asc' ? 'selected' : '' }}>Name
+                                (A - Z)</option>
+                            <option value="name_desc" {{ request()->input('sort_by') === 'name_desc' ? 'selected' : '' }}>
+                                Name (Z - A)</option>
+                            <option value="price_asc" {{ request()->input('sort_by') === 'price_asc' ? 'selected' : '' }}>
+                                Price (Low to High)</option>
+                            <option value="price_desc"
+                                {{ request()->input('sort_by') === 'price_desc' ? 'selected' : '' }}>Price (High to Low)
+                            </option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                    </div>
+    
+                </form>
 
+                <div class="row" style="border: none;">
+                    @foreach ($products as $product)
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style="border: none; box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);">
+                                <div class="image">
+                                    <img class="card-img-top" src="/images/{{ $product->image }}" width="200px">
 
-        <div class="products">
-            {{-- product1 --}}
-            <div class="row2">
-                <img src="image/best.webp" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
+                                </div>
+                                <div class="heart-icon">
+                                    <i class='bx bx-heart'></i>
+                                </div>
+                                <div class="ratting1">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star-half'></i>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product->name }}</h5>
+                                    <p class="card-text">{{ $product->description }}</p>
+                                    <h6 class="card-price">Price: ${{ $product->price }}</h6>
+                                    <div class="menu-footer">
+                                        <a href="{{ route('show', $product->id) }}" class="btn ">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>combo salat lover</h4>
-                    <p>59.000 VND</p>
-                </div>
-            </div>
-            {{-- product2 --}}
-            <div class="row1">
-                <img src="image/lover.jpeg" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>burger king</h4>
-                    <p>79.000 VND</p>
-                </div>
-            </div>
-            {{-- product3 --}}
-            <div class="row">
-                <img src="image/nhom.jpg" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>combo burger and Chicken</h4>
-                    <p>101.000 VND</p>
-                </div>
-            </div>
-            {{-- product4 --}}
-            <div class="row">
-                <img src="image/egg.jpg" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>combo egg tarts</h4>
-                    <p>69.000 VND</p>
-                </div>
-            </div>
-            {{-- product5 --}}
-            <div class="row4">
-                <img src="image/my.png" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>combo spaghetti chicken</h4>
-                    <p>91.000 VND</p>
-                </div>
-            </div>
-            {{-- product6 --}}
-            <div class="row3">
-                <img src="image/Bugers.jpg" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>Burger BBQ King</h4>
-                    <p>70.000 VND</p>
-                </div>
-            </div>
-            {{-- product7 --}}
-            <div class="row">
-                <a href="/trending"><img src="image/ga.jpg" alt=""></a>
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>combo Hoang Kim Chicken</h4>
-                    <p>150.000 VND</p>
-                </div>
-            </div>
-            {{-- product8 --}}
-            <div class="row5">
-                <img src="image/lote.png" alt="">
-                <div class="product-text">
-                    <h2>BestSellers</h2>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-                <div class="price">
-                    <h4>Loy Set</h4>
-                    <p>140.000 VND</p>
-                </div>
-            </div>
-            <div class="page-btn">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>&#8594;</span>
-            </div>
-        </div>
+            
+
+        </section>
     </section>
+
 
     <section class="contact">
         <div class="contact-info">

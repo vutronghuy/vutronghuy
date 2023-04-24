@@ -163,9 +163,19 @@ header.sticky{
     height: auto;
     transition: all .40s;
 }
-.row img:hover{
-    transform: scale(0.9);
+.image{
+ width: 100%;
+ height: 310px;
 }
+
+.image img{
+    width: 100%;
+    object-fit: cover;
+}
+/* .image img:hover{
+    transform: scale(0.9);
+} */
+
 /* img2 row1*/
 .row1 {
     position: relative;
