@@ -76,3 +76,6 @@ Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remo
 Route::get('/cart/add/{id}', 'CartController@add')->name('cart');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+Route::get('/create_category','App\Http\Controllers\CategoryController@create')->name('create');
+Route::post('store_category/','App\Http\Controllers\CategoryController@store')->name('store_category');

@@ -4,7 +4,11 @@
     <div class="container">
         <div class="card-body">
             <a href="{{ url('/create') }}" class="btn btn-info btn-sm">
-                Create new
+                Create new product
+            </a>
+
+            <a href="{{ url('/create_category') }}" class="btn btn-info btn-sm">
+                Create new category
             </a>
 
             <div class="table-responsive">
