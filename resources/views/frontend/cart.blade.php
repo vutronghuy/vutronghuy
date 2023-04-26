@@ -81,69 +81,59 @@
 
         <table>
             <tr>
-                <td>Subtotal</td>
-                <td>200.000đ</td>
+                <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
             </tr>
             <tr>
-                <td>Tax</td>
-                <td>20.000đ</td>
+                <td colspan="5" class="text-right">
+                    <a href="{{ url('/') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <button class="btn btn-success"><i class="fa fa-money"></i> Checkout</button>
+                </td>
             </tr>
-            <tr>
-                <td>Total</td>
-                <td>220.000đ</td>
-            </tr>
-        </table>
-    </div>
+        </tfoot>
+    </table>
+@endsection
 
+@section('scripts')
+    <script type="text/javascript">
 
+        $(".cart_update").change(function (e) {
+            e.preventDefault();
 
-    </div>  
+            var ele = $(this);
 
-{{-- footer --}}
-<section class="contact">
-    <div class="contact-info">
-        <div class="contact-info">
-            <div class="second">
-                <img src="image/king.png" alt="">
-            </div>
-        <div class="second">
-            <img src="image/lo.png" alt="">
-        </div>
-        <div class="first-info">
-            <img src="image/logo.png" alt="">
-            
-            <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
-            <p>024667477663</p>
-            <p>fastfood24@gmail.com</p>
+            $.ajax({
+                url: '{{ route('update_cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.parents("tr").attr("data-id"),
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function (response) {
+                window.location.reload();
+                }
+            });
+        });
 
-            <div class="social-icon">
-                <a href="/"><i class='bx bxl-facebook'></i></a>
-                <a href="/"><i class='bx bxl-twitter'></i></a>
-                <a href="/"><i class='bx bxl-instagram'></i></a>
-                <a href="/"><i class='bx bxl-youtube'></i></a>
-                <a href="/"><i class='bx bxl-linkedin'></i></a>
-            </div>
-        </div>
-        <div class="second-info">
-            <h4>Support</h4>
-            <p>Contact us</p>
-            <p>About page</p>
-            <p>Privacy</p>
-            <p>Question</p>
-            <p>Policy</p>
+        $(".cart_remove").click(function (e) {
+            e.preventDefault();
 
-        </div>
-        <div class="five">
-            <h4>Subcribe</h4>
-            <p>Recive updates, hot pick, bestseller</p>
-            <p>See you agains</p>
-        </div>
-    </div>
-</section>
+            var ele = $(this);
 
-<div class="end-text">
-    <p>Copyright by KFC @2023 VietNam</p>
-</div>
+            if(confirm("Do you really want to remove?")) {
+                $.ajax({
+                    url: '{{ route('remove_from_cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.parents("tr").attr("data-id")
+                    },
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
 
-</body>
-</html>
+    </script>
+@endsection

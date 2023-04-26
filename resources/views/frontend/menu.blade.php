@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" href="image/lo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -25,7 +31,13 @@
         </ul>
 
         <div class="nav-icon">
-            <a href="#"><i class='bx bx-search'></i></a>
+            {{-- <a href="#"><i class='bx bx-search'></i></a> --}}
+            <form action="{{ route('search') }}" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
             <a href="/cart"><i class='bx bx-cart'></i></a>
             
 
@@ -45,7 +57,7 @@
 
         {{-- Filter --}}
         <section class="container-fluid">
-            
+
                 <form method="GET" action="{{ route('menu') }}">
                     <div class="form-group">
                         <label for="category_id">Category:</label>
@@ -58,7 +70,7 @@
                             @endforeach
                         </select>
                     </div>
-    
+
                     <div class="form-group">
                         <label for="price_range">Price Range:</label>
                         <select name="price_range" class="form-control">
@@ -71,7 +83,7 @@
                                 </option>
                         </select>
                     </div>
-    
+
                     <div class="form-group">
                         <label for="sort_by">Sort By:</label>
                         <select name="sort_by" class="form-control">
@@ -86,11 +98,11 @@
                             </option>
                         </select>
                     </div>
-    
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Filter</button>
                     </div>
-    
+
                 </form>
 
                 <div class="row" style="border: none;">
@@ -123,7 +135,7 @@
                         </div>
                     @endforeach
                 </div>
-            
+
 
         </section>
     </section>

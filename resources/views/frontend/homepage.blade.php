@@ -32,7 +32,13 @@
         </ul>
 
         <div class="nav-icon">
-            <a href="#"><i class='bx bx-search'></i></a>
+            {{-- <a href="{{ route('search') }}"><i class='bx bx-search'></i></a> --}}
+            <form action="{{ route('search') }}" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
             <a href="/cart"><i class='bx bx-cart'></i></a>
         
         </div>

@@ -24,7 +24,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
+
+        // return view('products.create');
     }
 
     /**
@@ -37,6 +40,7 @@ class ProductController extends Controller
             'description' => 'required',
             'price' => 'required|numeric',
             'image' => 'required|image|mimes:jpeg,png,jpg.gif,svg|max:2048',
+            'category_id' => 'required|exists:categories,id',
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {
@@ -45,7 +49,16 @@ class ProductController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-        Product::create($input);
+        $product = Product::create($input);
+        // $category = Category::findOrFail($request->category_id);
+        // $category->products()->save($product);
+        $product->name = $input['name'];
+        $product->description = $input['description'];
+        $product->price = $input['price'];
+        $product->category_id = $input['category_id'];
+        $product->image = $input['image'];
+        $product->save();
+
         return redirect()->route('menu')->with('ok','Product created successfully!!');
     }
 
@@ -62,7 +75,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit',compact('product'));
+        $categories = Category::all();
+        return view('products.edit',compact('product', 'categories'));
     }
 
     /**
@@ -74,6 +88,7 @@ class ProductController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {
