@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::with('products')->get();
-        return view('categories.index', compact('categories'));
+        return view('products.create_category', compact('categories'));
     }
 
     /**
@@ -21,8 +21,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        // $categories = Category::all();
-        // return view('categories.create', compact('categories'));
+        $categories = Category::all();
+        return view('products.create_category', compact('categories'));
     }
 
     /**
@@ -32,10 +32,9 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->name = $request->name;
-        $category->description = $request->description;
         $category->parent_id = $request->parent_id;
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
+        return redirect()->route('index')->with('success', 'Category created successfully!');
     }
 
     /**
@@ -48,7 +47,7 @@ class CategoryController extends Controller
 
 
         $category->load('products');
-        return view('categories.show', compact('category'));
+        return view('products.show', compact('category'));
     }
 
     /**
