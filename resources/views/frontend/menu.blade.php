@@ -39,7 +39,7 @@
                 </button>
             </form>
             <a href="/cart"><i class='bx bx-cart'></i></a>
-            
+
 
         </div>
     </header>
@@ -126,6 +126,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">{{ $product->description }}</p>
+                                    <p class="card-category">Prodduct ID: {{ $product->category_id }}</p>
                                     <h6 class="card-price">Price: {{ $product->price }}vnđ</h6>
                                     <div class="menu-footer">
                                         <a href="{{ route('show', $product->id) }}" class="btn ">View Details</a>
