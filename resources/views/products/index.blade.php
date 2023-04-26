@@ -15,6 +15,7 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Description</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -25,6 +26,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->description }}</td>
+                                <td>{{ $product->category_id}}</td>
                                 <td>
                                     <form action="{{route('destroy',$product->id)}}" method="POST">
                                         <button class="show-btn"><a href="{{route('show',$product->id)}}" class="btn btn-info">Show</a></button>

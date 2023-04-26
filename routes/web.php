@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,4 +71,12 @@ Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name
 Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
 Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
 
-Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu'); 
+Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu');
+
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove_from_cart');
+
+Route::get('/cart/add/{id}', 'CartController@add')->name('cart');
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');

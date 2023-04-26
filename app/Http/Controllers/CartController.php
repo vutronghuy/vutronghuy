@@ -12,8 +12,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cartItems = session()->get('cart.items');
-        return view('carts.index', compact('cartItems'));
+        $products = Product::all();
+        return view('frontend.cart', compact('cartItems'));
     }
 
     /**
@@ -58,24 +58,47 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        $cartItems = session()->get('cart.items');
-        foreach ($request->quantity as $productId => $quantity) {
-            $cartItems[$productId]['quantity'] = $quantity;
+        if ($request->id && $request->quatity) {
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('ok', 'cart  successfully');
         }
-        session()->put('cart.items', $cartItems);
-        return redirect()->back()->with('success', 'Cart updated successfully!!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, $productId)
+    public function destroy(Request $request)
     {
-        $cartItems = session()->get('cart.items');
-        unset($cartItems[$productId]);
-        session()->put('cart.items', $cartItems);
-        return redirect()->back()->with('success', 'Product removed from cart successfully!!');
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('ok', 'cart removed!');
+        }
+    }
+
+    public function addToCart($id)
+    {
+        $product = Product::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "product_name" => $product->product_name,
+                "image" => $product->image,
+                "price" => $product->price,
+                "quantity" => 1
+
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->back()->with('ok', 'add to cart ok!');
     }
 }
