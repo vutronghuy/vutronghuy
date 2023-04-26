@@ -1,157 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Cart</title>
-    <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="css/product.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <a href="/"><img src="image/logo.png"></a>
-            <a href="/home"><img src="image/lo.png" ></a>
-        <a href="/home"><img src="image/king.png" ></a>
-        </div>
-   
-    <nav>
-        <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/menu">Menu</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="nav-icon">
-        <a href="/"><i class='bx bx-search'></i></a>
-        <a href="/cart"><i class='bx bx-cart'></i></a>
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <a href="/login"><i class='bx bx-user'></i></a>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="cart" id="cart">
-    <div class="title"></div><hr/>
-    <div id="title"></div>
-</div>
-{{-- cart item detail --}}
-  <div class="small-container cart-page">
+@extends('products.app')
 
-    <table>
-        <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-    </tr>
-    <tr>
-        <td>
-            <div class="cart-info">
-                <img src="image/ga.jpg" >
-                <div>
-                    <p>Chicken</p>
-                    <small>Price: 100.000đ</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </div>
-        </td>
-        <td><input type="number" value="1"></td>
-        <td>100.000đ</td>
-    </tr>
-    <tr>
-        <td>
-            <div class="cart-info">
-                <img src="image/ga.jpg" >
-                <div>
-                    <p>Chicken</p>
-                    <small>Price: 100.000đ</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
-            </div>
-        </td>
-        <td><input type="number" value="1"></td>
-        <td>100.000đ</td>
-    </tr>
+@section('content')
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $total = 0 @endphp
+            @if(session('cart'))
+                @foreach(session('cart') as $id => $details)
+                    @php $total += $details['price'] * $details['quantity'] @endphp
+                    <tr data-id="{{ $id }}">
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-3 hidden-xs"><img src="{{ asset('img') }}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
+                                <div class="col-sm-9">
+                                    <h4 class="nomargin">{{ $details['product_name'] }}</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">${{ $details['price'] }}</td>
+                        <td data-th="Quantity">
+                            <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
+                        </td>
+                        <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="text-right">
+                    <a href="{{ url('/') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <button class="btn btn-success"><i class="fa fa-money"></i> Checkout</button>
+                </td>
+            </tr>
+        </tfoot>
     </table>
+@endsection
 
-    <div class="total-price">
+@section('scripts')
+    <script type="text/javascript">
 
-        <table>
-            <tr>
-                <td>Subtotal</td>
-                <td>200.000đ</td>
-            </tr>
-            <tr>
-                <td>Tax</td>
-                <td>20.000đ</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>220.000đ</td>
-            </tr>
-        </table>
-    </div>
+        $(".cart_update").change(function (e) {
+            e.preventDefault();
 
+            var ele = $(this);
 
+            $.ajax({
+                url: '{{ route('update_cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.parents("tr").attr("data-id"),
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function (response) {
+                window.location.reload();
+                }
+            });
+        });
 
-    </div>  
+        $(".cart_remove").click(function (e) {
+            e.preventDefault();
 
-{{-- footer --}}
-<section class="contact">
-    <div class="contact-info">
-        <div class="contact-info">
-            <div class="second">
-                <img src="image/king.png" alt="">
-            </div>
-        <div class="second">
-            <img src="image/lo.png" alt="">
-        </div>
-        <div class="first-info">
-            <img src="image/logo.png" alt="">
-            
-            <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
-            <p>024667477663</p>
-            <p>fastfood24@gmail.com</p>
+            var ele = $(this);
 
-            <div class="social-icon">
-                <a href="/"><i class='bx bxl-facebook'></i></a>
-                <a href="/"><i class='bx bxl-twitter'></i></a>
-                <a href="/"><i class='bx bxl-instagram'></i></a>
-                <a href="/"><i class='bx bxl-youtube'></i></a>
-                <a href="/"><i class='bx bxl-linkedin'></i></a>
-            </div>
-        </div>
-        <div class="second-info">
-            <h4>Support</h4>
-            <p>Contact us</p>
-            <p>About page</p>
-            <p>Privacy</p>
-            <p>Question</p>
-            <p>Policy</p>
+            if(confirm("Do you really want to remove?")) {
+                $.ajax({
+                    url: '{{ route('remove_from_cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.parents("tr").attr("data-id")
+                    },
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
 
-        </div>
-        <div class="five">
-            <h4>Subcribe</h4>
-            <p>Recive updates, hot pick, bestseller</p>
-            <p>See you agains</p>
-        </div>
-    </div>
-</section>
-
-<div class="end-text">
-    <p>Copyright by KFC @2023 VietNam</p>
-</div>
-
-</body>
-</html>
+    </script>
+@endsection

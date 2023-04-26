@@ -20,7 +20,7 @@
             <a href="/home"><img src="image/lo.png" ></a>
         <a href="/home"><img src="image/king.png" ></a>
         </div>
-   
+
     <nav>
         <ul>
             <li><a href="/home">Home</a></li>
@@ -45,12 +45,12 @@
 			</div>
 			<div class="col-md-6">
 				<h1>Chicken</h1>
-				<p>Description of the product goes here. Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. Aliquam fringilla quam vel nisl faucibus, 
-                    ac elementum neque semper. Nulla facilisi. Mauris bibendum augue lectus, 
-                    sed placerat turpis rutrum sit amet. Nulla facilisi. Vivamus eu odio interdum, 
+				<p>Description of the product goes here. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Aliquam fringilla quam vel nisl faucibus,
+                    ac elementum neque semper. Nulla facilisi. Mauris bibendum augue lectus,
+                    sed placerat turpis rutrum sit amet. Nulla facilisi. Vivamus eu odio interdum,
                     tempus nulla eu, fringilla libero. </p>
-				<p>Price: $99.99</p>       
+				<p>Price: $99.99</p>
                   <div>
                       <select style="margin-bottom: 20px;">
                           <option>Select Size</option>
@@ -58,10 +58,10 @@
                           <option>Normal</option>
                           <option>Small</option>
                       </select>
-                      <input type="number" value="1">      
+                      <input type="number" value="1">
                   </div>
                   <a href="" class="btn">Add To Cart</a>
-            </div>                              
+            </div>
         </div>
     </div>
     {{-- title --}}
@@ -113,7 +113,7 @@
                     <h4>burger king</h4>
                     <p>79.000 VND</p>
                 </div>
-            </div> 
+            </div>
             {{-- product3 --}}
              <div class="row5">
                 <img src="image/nhom.jpg" alt="">
@@ -134,7 +134,7 @@
                     <h4>combo burger and Chicken</h4>
                     <p>101.000 VND</p>
                 </div>
-            </div> 
+            </div>
             {{-- product4 --}}
             <div class="row6">
                 <img src="image/egg.jpg" alt="">
@@ -156,9 +156,9 @@
                     <p>69.000 VND</p>
                 </div>
             </div>
-            
+
         </div>
-    </section> 
+    </section>
     <div>
 
         <section class="contact">
@@ -171,11 +171,11 @@
                 </div>
                 <div class="first-info">
                     <img src="image/logo.png" alt="">
-                    
+
                     <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
                     <p>024667477663</p>
                     <p>fastfood24@gmail.com</p>
-    
+
                     <div class="social-icon">
                         <a href="/"><i class='bx bxl-facebook'></i></a>
                         <a href="/"><i class='bx bxl-twitter'></i></a>
@@ -191,7 +191,7 @@
                     <p>Privacy</p>
                     <p>Question</p>
                     <p>Policy</p>
-    
+
                 </div>
                 <div class="five">
                     <h4>Subcribe</h4>
@@ -200,7 +200,7 @@
                 </div>
             </div>
         </section>
-    
+
         <div class="end-text">
             <p>Copyright by KFC @2023 VietNam</p>
         </div>

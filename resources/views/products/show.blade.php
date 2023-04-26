@@ -36,7 +36,14 @@
             </div>
 
             <div class="col-md-12 col-sm-12">
-                <button type="submit">Submit</button>
+                <form method="POST" action="">
+                    @csrf
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->quantity }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><a href="{{ route('cart', $product->id) }}">Add to Cart</a></button>
+                </form>
             </div>
         </div>
     </form>

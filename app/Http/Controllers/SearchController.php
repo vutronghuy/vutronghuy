@@ -10,13 +10,15 @@ class SearchController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function search(Request $request)
     {
         $query = $request->input('query');
         $products = Product::where('name', 'LIKE', '%' . $query . '%')
                             ->orWhere('description', 'LIKE', '%' . $query . '%')
                             ->get();
-        return view('search.index', compact('products', 'query')); 
+
+        
+        return view('search.search', compact('products', 'query'));
     }
 
     /**
