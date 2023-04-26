@@ -33,13 +33,13 @@
 
         <div class="nav-icon">
             {{-- <a href="{{ route('search') }}"><i class='bx bx-search'></i></a> --}}
-            <form action="{{ route('search') }}" method="get">
+            <form action="{{ route('search') }}" method="get" style="display:flex; ">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i class="bx bx-search" style="padding: 5px;"></i>
                 </button>
-            </form>
-            <a href="/cart"><i class='bx bx-cart'></i></a>
+            </form> 
+            <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>
         
         </div>
     </header>

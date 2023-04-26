@@ -1,0 +1,29 @@
+h1{
+    font-size: 30px !important;
+}
+
+.row .heart-icon{
+    color: red;
+    text-align: right;
+    padding: 10px;
+}
+.row .ratting{
+    color: orange;
+    font-size: 20px;
+}
+.row .card-body h5{
+    font-size:25px;
+}
+.row .card-body p{
+    font-size: 23px;
+}
+.row .card-body h6{
+    font-size:23px;
+}
+.row .card-body .btn{
+    background-color: red;
+    transition: opacity 0.2s;
+}
+.row .card-body .btn:hover{
+    opacity: 0.5;
+}
