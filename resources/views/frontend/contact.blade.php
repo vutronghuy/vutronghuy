@@ -33,15 +33,7 @@
     <div class="nav-icons">
         <a href="/"><i class='bx bx-search'></i></a>
         <a href="/cart"><i class='bx bx-cart'></i></a>
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <a href="/login"><i class='bx bx-user'></i></a>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-            </ul>
-        </div>
+       
     </div>
 </div>
 

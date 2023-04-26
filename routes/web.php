@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('frontend.homepage');
 });
 Route::get('/home', function () {
     return view('frontend.homepage');
@@ -32,12 +32,10 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('frontend.cart');
 });
-Route::get('/register', function () {
-    return view('auth.register');
-});
 
-Route::get('/test', function () {
-     return view('test');
+
+Route::get('/layout', function () {
+     return view('layout');
 });
 
 Route::get('/about', function () {
@@ -51,12 +49,10 @@ Route::get('/search', function () {
     return view('frontend.search');
 });
 
-Route::get('logout', function () {
-    return view('auth.login');
-}) -> name('logout');
+
 
 Route::post('/register/store', [UserController::class, 'store']);
-
+Route::get('/search', 'SearchController@search')->name('search');
 
 // Auth::routes();
 

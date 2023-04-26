@@ -33,15 +33,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-            ]);
-            $input = $request->all();
-            // dd($input);
-            user::create($input);
-            return view('auth.login')->with('ok','success');
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required'
+        //     ]);
+        //     $input = $request->all();
+        //     // dd($input);
+        //     user::create($input);
+        //     return view('frontend.homepage')->with('ok','success');
     }
 
     /**

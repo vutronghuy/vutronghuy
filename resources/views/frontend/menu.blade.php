@@ -5,7 +5,7 @@
     <title>menu</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/style.css">
+    {{-- <link rel="stylesheet" href="css/style.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" href="image/lo.png" type="image/x-icon">
@@ -27,20 +27,12 @@
         <div class="nav-icon">
             <a href="#"><i class='bx bx-search'></i></a>
             <a href="/cart"><i class='bx bx-cart'></i></a>
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <a href="/login"><i class='bx bx-user'></i></a>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                </ul>
-            </div>
+            
 
         </div>
     </header>
 
-
+        {{-- section --}}
     <section class="main-menu">
         <div class="down-arrow">
             <a href="#bestseller" class="down"><i class='bx bxs-down-arrow-alt'></i></a>
@@ -71,12 +63,12 @@
                         <label for="price_range">Price Range:</label>
                         <select name="price_range" class="form-control">
                             <option value="">All</option>
-                            <option value="0-10" {{ request()->input('price_range') === '0-10' ? 'selected' : '' }}>0 - 10
+                            <option value="50000-100000" {{ request()->input('price_range') === '50000-100000' ? 'selected' : '' }}>50000-100000
                             </option>
-                            <option value="10-50" {{ request()->input('price_range') === '10-50' ? 'selected' : '' }}>10 -
-                                50</option>
-                            <option value="50-100" {{ request()->input('price_range') === '50-100' ? 'selected' : '' }}>50 -
-                                100</option>
+                            <option value="101000-200000" {{ request()->input('price_range') === '101000-200000' ? 'selected' : '' }}>101000-200000
+                                </option>
+                            <option value="201000-500000" {{ request()->input('price_range') === '201000-500000' ? 'selected' : '' }}>201000-500000
+                                </option>
                         </select>
                     </div>
     
@@ -122,7 +114,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">{{ $product->description }}</p>
-                                    <h6 class="card-price">Price: ${{ $product->price }}</h6>
+                                    <h6 class="card-price">Price: {{ $product->price }}vnđ</h6>
                                     <div class="menu-footer">
                                         <a href="{{ route('show', $product->id) }}" class="btn ">View Details</a>
                                     </div>

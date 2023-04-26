@@ -2,3 +2,40 @@
     width: 50%;
     height: 50% !important;
 }
+
+  .name .form-group{
+    color: rgb(13, 20, 20);
+  }
+  .btnn .submit{
+    color: aqua;
+  }
+  .navbar{
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: rgb(226, 149, 17);
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  font-weight: 400;
+}
+nav ul li a:hover{
+  color: red;
+}
+.logo img {
+  max-width: 120px;
+  height: auto;
+}
+.lo img{
+  max-width: 120px;
+  height: auto;
+}
+.king img{
+  max-width: 120px;
+  height: auto;
+}
