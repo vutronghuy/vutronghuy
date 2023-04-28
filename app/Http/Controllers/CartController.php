@@ -28,24 +28,25 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
+        
         $exist = false;
 
         $formFields['user_id'] = 1;
         $formFields['product_id'] = $request->product_id;
         $formFields['quantity'] = $request->quantity;
 
-        $cartItem = CartItem::where('product_id', $request->product_id)->first();
+        // $cartItem = CartItem::where('product_id', $request->product_id)->first();
 
-        if ($cartItem) {
-            $cartItem->quantity = $request->quantity;
-            $cartItem->update($formFields);
-            $exist = true;
-        }
+        // if ($cartItem) {
+        //     $cartItem->quantity = $request->quantity;
+        //     $cartItem->update($formFields);
+        //     $exist = true;
+        // }
 
         if (!$exist) {
             CartItem::create($formFields);
         }
-        return redirect()->route('cartItemss');
+        return redirect()->route('cartItems');
     }
 
 

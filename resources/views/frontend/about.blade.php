@@ -21,25 +21,24 @@
             <a href="/home"><img src="image/lo.png" ></a>
         <a href="/home"><img src="image/king.png" ></a>
         </div>
-   
+
     <nav>
         <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/menu">Menu</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/cart">Cart</a></li>
+            <li><a href="/shopping_cart">Cart</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <div class="nav-icon">
         <a href="/"><i class='bx bx-search'></i></a>
-        <a href="/cart"><i class='bx bx-cart'></i></a>
-    
+        <a href="/shopping_cart"><i class='bx bx-cart'></i></a>
     </div>
 </div>
 <div>Google map dd </div>
 <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.743415826598!2d105.76362570954073!3d21.042950180529033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b6071d2787%3A0xb99aa77c8ddca157!2zMTM2IMSQLiBI4buTIFTDuW5nIE3huq11LCBNYWkgROG7i2NoLCBC4bqvYyBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1681842534829!5m2!1sen!2s" 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.743415826598!2d105.76362570954073!3d21.042950180529033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b6071d2787%3A0xb99aa77c8ddca157!2zMTM2IMSQLiBI4buTIFTDuW5nIE3huq11LCBNYWkgROG7i2NoLCBC4bqvYyBU4burIExpw6ptLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1681842534829!5m2!1sen!2s"
     width="1500" height="900" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
@@ -53,7 +52,7 @@
         </div>
         <div class="first-info">
             <img src="image/logo.png" alt="">
-            
+
             <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
             <p>024667477663</p>
             <p>fastfood24@gmail.com</p>

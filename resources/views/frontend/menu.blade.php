@@ -26,7 +26,7 @@
             <li><a href="/home">Home</a></li>
             <li><a href="/menu">Menu</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/cart">Cart</a></li>
+            <li><a href="/shopping_cart">Cart</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
 
@@ -38,7 +38,7 @@
                     <i class="bx bx-search" style="padding: 4px;"></i>
                 </button>
             </form>
-            <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px;"></i></a>
+            <a href="/shopping_cart"><i class='bx bx-cart' style="margin-left: 10px;"></i></a>
 
 
         </div>
@@ -104,7 +104,7 @@
                     </div>
 
                 </form>
-               
+
                 <div class="row" style="border: none;">
                     @foreach ($products as $product)
                         <div class="col-md-4 mb-4">
