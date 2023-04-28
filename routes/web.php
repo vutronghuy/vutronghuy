@@ -58,7 +58,7 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 // Auth::routes();
 
-Route::post('store/', 'App\Http\Controllers\CartController@add')->name('add');
+Route::post('/cart_store', 'App\Http\Controllers\CartController@add')->name('add');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/shopping_cart', 'App\Http\Controllers\CartController@index')->name('cartItemss');
@@ -68,7 +68,8 @@ Route::delete('/shopping_cart/{cart}', 'App\Http\Controllers\CartController@remo
 
 Route::get('/product', 'App\Http\Controllers\ProductController@menu')->name('menu');
 Route::get('/admin', 'App\Http\Controllers\ProductController@index')->name('index');
-Route::get('/create', 'App\Http\Controllers\ProductController@create')->name('create');
+Route::get('/create', 'App\Http\Controllers\ProductController@create')->name('product.create');
+Route::post('/store', 'App\Http\Controllers\ProductController@store')->name('product.store');
 Route::get('show/{product}', 'App\Http\Controllers\ProductController@show')->name('show');
 Route::get('edit/{product}', 'App\Http\Controllers\ProductController@edit')->name('edit');
 Route::put('edit/{product}', 'App\Http\Controllers\ProductController@update')->name('update');
@@ -84,7 +85,7 @@ Route::get('/cart/add/{id}', 'CartController@add')->name('cart');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::get('/create_category', 'App\Http\Controllers\CategoryController@create')->name('create');
+Route::get('/create_category', 'App\Http\Controllers\CategoryController@create')->name('cat.create');
 Route::post('store_category/', 'App\Http\Controllers\CategoryController@store')->name('store_category');
 
 // page

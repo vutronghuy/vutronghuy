@@ -14,7 +14,6 @@ class CategoryController extends Controller
     {
         $categories = Category::with('products')->get();
         return view('products.create_category', compact('categories'));
-
     }
 
     /**
@@ -31,10 +30,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->name = $request->name;
-        $category->parent_id = $request->parent_id;
-        $category->save();
+        $formFields['name'] = $request->name;
+
+        Category::create($formFields);
+
         return redirect()->route('index')->with('success', 'Category created successfully!');
     }
 

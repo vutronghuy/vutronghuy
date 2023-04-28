@@ -34,13 +34,11 @@
     padding: 20px;
     transition: all 0.2s ease-in-out;
  }
- 
  .navmenu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    
  }
  .navmenu a {
    color: black; 
@@ -165,9 +163,6 @@ header.sticky{
 .row img:hover{
     transform: scale(0.9);
   }
-  
-
-
 /* img2 row1*/
 .row1 {
     position: relative;

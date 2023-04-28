@@ -1,120 +1,28 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+.product{
+  display: grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, auto));
+  gap: 2rem;
 }
-.navbar{
-    display: flex;
-    align-items: center;
-    padding: 40px;
-    background-color: rgb(226, 149, 17);
+.row{
+  position: relative;
+  transition: all.40s;
+  border: 1px solid black;
 }
-nav{
-    flex: 1;
-    text-align: center;
+.row h1{
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  color: aliceblue;
+  background-color: aquamarine;
+  font-size: 12px;
+  text-transform: upper;
+  padding: 3px 10px;
 }
-
-nav ul li{
-    display: inline-block;
-    margin-right: 20px;
+.row img{
+  width: 100%;
+  transition: all.40s;
+  height: auto;
 }
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    text-transform: capitalize;
-    padding: 10px 20px;
-    font-weight: 400;
-    transition: all .42s ease;
+.row img:hover{
+  transform: scale(0.9);
 }
-a:hover {
-    color: red;
-  }
-.nav-icon{
-    display: flex;
-    align-items: center;
-}
-.nav-icon i{ 
-    margin-right: 20px;
-    color: black;
-    font-weight: 900;
-    transition: all .42s ease;
-    font-size: 25px;
-  }
-  .nav-icon i:hover{
-    color: red;
-    transform: scaleZ(1.1);
-  }
-  body{
-    background-color: bisque;
-  }
-  .btn{
-    margin-top: 20px;
-    color: black;
-    border: 1px solid black;
-    background-color: aqua;
-  }
-
-  
-  /* img2 row1*/
-.row1 {
-    position: relative;
-    transition: all .40s;
-    border: 1px solid black;
-    transform: scale(0.9);
-  }
-  .row1 img{
-    width: 100%;
-    height: 67%;
-    transition: all .40s;
-  }
-  .row1 img:hover{
-    transform: scale(0.9);
-  }
-  /* img1 row2 */
-.row2 {
-    position: relative;
-    transition: all .40s;
-    border: 1px solid black;
-    transform: scale(0.9);
-  }
-  .row2 img{
-    width: 100%;
-    height: 67%;
-    transition: all .40s;
-  }
-  .row2 img:hover{
-    transform: scale(0.9);
-  }
-  /* img3 row5 */
-  .row5 {
-    position: relative;
-    transition: all .40s;
-    border: 1px solid black;
-    transform: scale(0.9);
-  }
-  .row5 img{
-    width: 100%;
-    height: 67%;
-    transition: all .40s;
-  }
-  .row5 img:hover{
-    transform: scale(0.9);
-  }
-  /* img4 row6 */
-  .row6 {
-    position: relative;
-    transition: all .40s;
-    border: 1px solid black;
-    transform: scale(0.9);
-  }
-  .row6 img{
-    width: 100%;
-    height: 67%;
-    transition: all .40s;
-  }
-  .row6 img:hover{
-    transform: scale(0.9);
-  }
-

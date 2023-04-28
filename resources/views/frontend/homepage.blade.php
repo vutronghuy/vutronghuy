@@ -8,14 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
-        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="icon" href="image/king.png" type="image/x-icon">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> --}}
+
 </head>
 
 <body>
@@ -32,7 +27,6 @@
         </ul>
 
         <div class="nav-icon">
-            {{-- <a href="{{ route('search') }}"><i class='bx bx-search'></i></a> --}}
             <form action="{{ route('search') }}" method="get" style="display:flex; ">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">
@@ -114,9 +108,6 @@
                 <div class="product-text">
                     <h2>BestSellers</h2>
                 </div>
-                {{-- <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div> --}}
                 <div class="ratting">
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>

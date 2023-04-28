@@ -4,7 +4,7 @@
     <div class="row1">
         <a href="{{url('/admin')}}" class="btn btn-primary">Back</a>
     </div>
-    <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row2">
             <div class="col-md-12 col-sm-12">
