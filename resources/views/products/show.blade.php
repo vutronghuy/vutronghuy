@@ -20,7 +20,7 @@
         </nav>
         <div class="nav-icon">
             <a href="/"><i class='bx bx-search'></i></a>
-            <a href="/cart"><i class='bx bx-cart'></i></a>
+            <a href="/shopping_cart"><i class='bx bx-cart'></i></a>
 
         </div>
     </div>
@@ -59,8 +59,8 @@
                         </div>
                     </form> --}}
                 </div>
-                
-                
+
+
                 <div class="btn">
                     <input type="number" id="quantity" name="quantity" value="1" min="1" max="9"/>
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-    
+
         </div>
 
     </form>
