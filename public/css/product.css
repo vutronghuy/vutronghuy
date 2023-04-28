@@ -56,12 +56,6 @@
     color: red;
     transform: scaleZ(1.1);
   }
-  #menu-icon{
-    font-size: 30px;
-    color: black;
-    z-index: 1000;
-    cursor: pointer;
-  }
   /* bestseller-section-css */
 .center-text h1{
   color: rgb(186, 47, 47);

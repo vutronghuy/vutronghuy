@@ -6,17 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
+use function Termwind\render;
+
 class ProductController extends Controller
-{
+{   
+    // public function product1()
+    // {
+    //     return view('product1');
+    // }
+    
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
 
-        $products = Product::latest()->paginate(10);
-        return view('products.index', compact('products'));
-
+        $products = Product::latest()->paginate(5);
+        return view('products.index', compact('products'))->with('i',(request()->input('page', 1)-1) *5);
     }
 
     /**
@@ -151,10 +158,13 @@ class ProductController extends Controller
                 break;
         }
 
-        $products = $query->paginate(10);
+        $products = $query->paginate(5);
         $categories = Category::all();
 
         return view('frontend.menu', compact('products', 'categories'));
     }
 
+
+
 }
+

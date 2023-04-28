@@ -15,6 +15,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
@@ -26,6 +27,7 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr>
+                                <td>{{ ++$i }}</td>
                                 <td><img class="image" src="/images/{{$product->image}}" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
@@ -48,5 +50,6 @@
                 </table>
             </div>
         </div>
+       {{ $products->links()}} 
     </div>
 @endsection

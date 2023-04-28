@@ -32,7 +32,7 @@
   left: 20px;
 }
 header {
-  position: fixed;
+ position: fixed;
   width: 100%;
   top: 0;
   right: 0;
@@ -41,12 +41,12 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  
+  transition: all 0.2s ease-in-out;
 }
 header.sticky{
   background: bisque;
   padding: 20px 10%;
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.4);
 }
 .navmenu {
   display: flex;
@@ -60,7 +60,7 @@ header.sticky{
  text-transform: capitalize;
  padding: 10px 20px;
  font-weight: 400; 
- /* transition: all .42s ease;  */
+ transition: all .42s ease; 
  text-decoration: dashed !important;
 }
 .navmenu a:hover {
@@ -77,6 +77,10 @@ header.sticky{
   transition: all .42s ease;
   font-size: 25px;
 
+}
+.nav-icon input{
+  font-size: 20px;
+  height: 40px;
 }
 .nav-icon i:hover{
   color: red;
@@ -224,7 +228,32 @@ select:focus{
 .page-btn span:hover{
   background: orange;
 }
-/* product */
+/* number */
+.list-page{
+  width: 50%;
+  margin: 0px auto;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+.list-page .item {
+  margin: 0px 20px;
+  width: 37px;
+  height: 37px;
+  background-color: orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-page .item a{
+    color: #111;
+    text-decoration: none;
+}
+
+
+/* footer */
 .menu-footer{
   background-color: bisque;
   text-align: center;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('frontend.homepage');
-}) ->name('home');
+})->name('home');
 Route::get('/trending', function () {
     return view('frontend.trending');
 });
@@ -36,7 +37,7 @@ Route::get('/cart', function () {
 
 
 Route::get('/layout', function () {
-     return view('layout');
+    return view('layout');
 });
 
 Route::get('/about', function () {
@@ -51,21 +52,27 @@ Route::get('/search', function () {
 });
 
 
-
+Route::post('/cart', [CartController::class, 'destroy']);
 Route::post('/register/store', [UserController::class, 'store']);
 Route::get('/search', 'SearchController@search')->name('search');
 
 // Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('store/', 'App\Http\Controllers\CartController@add')->name('add');
 
-Route::get('/admin','App\Http\Controllers\ProductController@index')->name('index');
-Route::get('/create','App\Http\Controllers\ProductController@create')->name('create');
-Route::post('store/','App\Http\Controllers\ProductController@store')->name('store');
-Route::get('show/{product}','App\Http\Controllers\ProductController@show')->name('show');
-Route::get('edit/{product}','App\Http\Controllers\ProductController@edit')->name('edit');
-Route::put('edit/{product}','App\Http\Controllers\ProductController@update')->name('update');
-Route::delete('/{product}','App\Http\Controllers\ProductController@destroy')->name('destroy');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/shopping_cart', 'App\Http\Controllers\CartController@index')->name('cartItemss');
+Route::put('/shopping_cart/{cart}', 'App\Http\Controllers\CartController@update')->name('cart.update');
+Route::delete('/shopping_cart/{cart}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
+
+
+Route::get('/product', 'App\Http\Controllers\ProductController@menu')->name('menu');
+Route::get('/admin', 'App\Http\Controllers\ProductController@index')->name('index');
+Route::get('/create', 'App\Http\Controllers\ProductController@create')->name('create');
+Route::get('show/{product}', 'App\Http\Controllers\ProductController@show')->name('show');
+Route::get('edit/{product}', 'App\Http\Controllers\ProductController@edit')->name('edit');
+Route::put('edit/{product}', 'App\Http\Controllers\ProductController@update')->name('update');
+Route::delete('/{product}', 'App\Http\Controllers\ProductController@destroy')->name('destroy');
 
 Route::get('/menu', 'App\Http\Controllers\ProductController@menu')->name('menu');
 
@@ -77,5 +84,10 @@ Route::get('/cart/add/{id}', 'CartController@add')->name('cart');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::get('/create_category','App\Http\Controllers\CategoryController@create')->name('create');
-Route::post('store_category/','App\Http\Controllers\CategoryController@store')->name('store_category');
+Route::get('/create_category', 'App\Http\Controllers\CategoryController@create')->name('create');
+Route::post('store_category/', 'App\Http\Controllers\CategoryController@store')->name('store_category');
+
+// page
+Route::get('/product1', [ProductController::class, 'product1'])->name('product1');
+// Route::get('/product2', [ProductController::class, 'product2'])->name('product2');
+// Route::get('/products/{id}', 'App\Http\Controllers\CategoryController@index')->name('frontend.menu');

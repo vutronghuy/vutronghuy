@@ -14,6 +14,7 @@ class CategoryController extends Controller
     {
         $categories = Category::with('products')->get();
         return view('products.create_category', compact('categories'));
+
     }
 
     /**

@@ -32,13 +32,13 @@
 
         <div class="nav-icon">
             {{-- <a href="#"><i class='bx bx-search'></i></a> --}}
-            <form action="{{ route('search') }}" method="get">
+            <form action="{{ route('search') }}" method="get" style="display:flex;">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">
-                    <i class="fa fa-search"></i>
+                    <i class="bx bx-search" style="padding: 4px;"></i>
                 </button>
             </form>
-            <a href="/cart"><i class='bx bx-cart'></i></a>
+            <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px;"></i></a>
 
 
         </div>
@@ -104,7 +104,7 @@
                     </div>
 
                 </form>
-
+               
                 <div class="row" style="border: none;">
                     @foreach ($products as $product)
                         <div class="col-md-4 mb-4">
@@ -136,8 +136,7 @@
                         </div>
                     @endforeach
                 </div>
-
-
+                {{ $products->links()}}
         </section>
     </section>
 

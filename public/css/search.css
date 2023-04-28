@@ -5,7 +5,8 @@ h1{
 .row .heart-icon{
     color: red;
     text-align: right;
-    padding: 10px;
+    padding: 20px;
+    font-size: 20px;
 }
 .row .ratting{
     color: orange;

@@ -27,7 +27,7 @@
     {{-- <div class="row">
         <a href="{{url('/menu')}}" class="btn btn-primary">Back</a>
     </div> --}}
-    <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('add') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
@@ -52,16 +52,18 @@
                     </div>
                 </div>
                 <div class="Quan">
-                    <form method="POST" action="">
+                    {{-- <form method="POST" action="">
                         @csrf
                         <div class="form-group" >
                             <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->quantity }}">
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
-
+                
+                
                 <div class="btn">
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="9"/>
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit">Add to cart</button>
                 </div>
             </div>

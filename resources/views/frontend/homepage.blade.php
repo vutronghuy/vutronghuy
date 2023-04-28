@@ -36,7 +36,7 @@
             <form action="{{ route('search') }}" method="get" style="display:flex; ">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">
-                    <i class="bx bx-search" style="padding: 5px;"></i>
+                    <i class="bx bx-search" style="padding: 4px;"></i>
                 </button>
             </form> 
             <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>

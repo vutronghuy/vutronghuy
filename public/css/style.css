@@ -73,12 +73,6 @@
     color: red;
     transform: scaleZ(1.1);
 }
-#menu-icon{
-    font-size: 30px;
-    color: black;
-    z-index: 1000;
-    cursor: pointer;
-}
 section{
     padding: 5% 10%;
     background-color: bisque;
@@ -168,6 +162,10 @@ header.sticky{
     height: auto;
     transition: all .40s;
 }
+.row img:hover{
+    transform: scale(0.9);
+  }
+  
 
 
 /* img2 row1*/

@@ -8,11 +8,12 @@
     display: flex;
     align-items: left;
     padding: 50px;
-    background-color:orange;
+    background-color:bisque;
 }
 nav{
     flex: 1;
     text-align: center;
+    align-items: center;
 }
 nav ul{
     display: inline-block;

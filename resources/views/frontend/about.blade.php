@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar" style="padding: 2rem;">
         <div class="logo">
             <a href="/"><img src="image/logo.png"></a>
             <a href="/home"><img src="image/lo.png" ></a>

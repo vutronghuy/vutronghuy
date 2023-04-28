@@ -4,101 +4,86 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\CartItem;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $products = Product::all();
+        $cartItems = CartItem::all();
+        // $totalPrice = $this->getTotalPrice($cartItems);
+
         return view('frontend.cart', compact('cartItems'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function count()
     {
-        //
+        $cartItems = Session::get('products.cart', []);
+        $cartItemCount = count($cartItems);
+        return $cartItemCount;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+
+    public function add(Request $request)
     {
-        $product = Product::findOrFail($request->product_id);
-        $cartItems = session()->get('cart.items');
-        $cartItems[$product->id] = [
-            'product' => $product,
-            'quantity' => isset($cartItems[$product->id]) ? $cartItems[$product->id]['quantity'] + $request->quantity : $request->quantity
-        ];
-        session()->put('cart.items', $cartItems);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        $exist = false;
+
+        $formFields['user_id'] = 1;
+        $formFields['product_id'] = $request->product_id;
+        $formFields['quantity'] = $request->quantity;
+
+        $cartItem = CartItem::where('product_id', $request->product_id)->first();
+
+        if ($cartItem) {
+            $cartItem->quantity = $request->quantity;
+            $cartItem->update($formFields);
+            $exist = true;
+        }
+
+        if (!$exist) {
+            CartItem::create($formFields);
+        }
+        return redirect()->route('cartItemss');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+
+    public function remove(CartItem $cart)
     {
-        //
+        $cart->delete();
+        // return redirect('/listings')->with('message', 'Game listing deleted successfully!');
+        return back()->with('message', 'Game listing deleted successfully!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $cartItem = CartItem::findOrFail($id);
+        return view('products.editCart', compact('cartItem'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request)
     {
-        if ($request->id && $request->quatity) {
-            $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('ok', 'cart  successfully');
-        }
+        $formFields['user_id'] = 1;
+        $formFields['product_id'] = $request->product_id;
+        $formFields['quantity'] = $request->quantity;
+
+        $cartItem = CartItem::where('product_id', $request->product_id)->first();
+
+        $cartItem->update($formFields);
+
+
+
+        return redirect()->back()->with('success', 'Cart updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
+    private function getTotalPrice($cartItems)
     {
-        if ($request->id) {
-            $cart = session()->get('cart');
-            if (isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('ok', 'cart removed!');
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += $item['price'] * $item['quantity'];
         }
-    }
-
-    public function addToCart($id)
-    {
-        $product = Product::findOrFail($id);
-        $cart = session()->get('cart', []);
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                "product_name" => $product->product_name,
-                "image" => $product->image,
-                "price" => $product->price,
-                "quantity" => 1
-
-            ];
-        }
-        session()->put('cart', $cart);
-        return redirect()->back()->with('ok', 'add to cart ok!');
+        return $totalPrice;
     }
 }
