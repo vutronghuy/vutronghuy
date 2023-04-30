@@ -7,8 +7,8 @@
     <title>Contact</title>
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  
-    
+
+
 </head>
 <body>
      <div class="navbar">
@@ -17,7 +17,7 @@
             <a href="/home"><img src="image/lo.png" ></a>
         <a href="/home"><img src="image/king.png" ></a>
         </div>
-   
+
     <nav>
         <ul>
             <li><a href="/home">Home</a></li>
@@ -46,7 +46,7 @@
         </div>
         <div class="first-info">
             <img src="image/logo.png" alt="">
-            
+
             <p>136 Ho Tung Mau Street, <br>KFC Americans 76 fantom Street</p>
             <p>024667477663</p>
             <p>fastfood24@gmail.com</p>

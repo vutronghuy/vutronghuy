@@ -33,7 +33,7 @@
                     <i class="bx bx-search" style="padding: 4px;"></i>
                 </button>
             </form> 
-            <a href="/shopping_cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>
+            <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>
         
         </div>
     </header>

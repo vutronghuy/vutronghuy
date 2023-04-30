@@ -51,7 +51,7 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 Route::post('/cart_store', 'App\Http\Controllers\CartController@add')->name('add');
 
-Route::get('/shopping_cart', 'App\Http\Controllers\CartController@index')->name('cartItemss');
+Route::get('/shopping_cart', 'App\Http\Controllers\CartController@index')->name('cartItems');
 Route::put('/shopping_cart/{cart}', 'App\Http\Controllers\CartController@update')->name('cart.update');
 Route::delete('/shopping_cart/{cart}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 

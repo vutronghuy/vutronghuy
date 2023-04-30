@@ -104,7 +104,7 @@
                     </div>
 
                 </form>
-               
+
                 <div class="row" style="border: none;">
                     @foreach ($products as $product)
                         <div class="col-md-4 mb-4">
