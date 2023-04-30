@@ -347,14 +347,14 @@ font-weight: 700;
     transform: scale(1.3);
 }
 .end-text{
-    background-color: aliceblue;
+    background-color: bisque;
     text-align: center;
     padding: 20px;
 }
 .end-text p{
     color: black;
     text-transform: capitalize;
-    background-color: bisque;
+   
 }
 .rating {
     color: orange;

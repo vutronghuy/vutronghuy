@@ -3,24 +3,6 @@
 @section('content')
 <h1>Search Results for "{{ $query }}"</h1>
 
-{{-- <div class="row">
-    @foreach ($products as $product)
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ $product->image }}" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <p class="card-text">{{ $product->name }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="{{ url('/show') }}" class="btn btn-sm btn-outline-secondary">View</a>
-                        </div>
-                        <small class="text-muted">${{ $product->price }}</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div> --}}
 
 <div class="row" style="border: none;">
     @foreach ($products as $product)

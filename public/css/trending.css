@@ -1,12 +1,12 @@
 .product{
   display: grid;
-grid-template-columns:repeat(auto-fit, minmax(260px, auto));
+  grid-template-columns:repeat(auto-fit, minmax(260px, auto));
   gap: 2rem;
 }
 .row{
   position: relative;
   transition: all.40s;
-  border: 1px solid black;
+  border: 1px solid rgb(232, 196, 196);
 }
 .row h1{
   position: absolute;
@@ -19,7 +19,7 @@ grid-template-columns:repeat(auto-fit, minmax(260px, auto));
   padding: 3px 10px;
 }
 .row img{
-  width: 100%;
+  width: 29rem;
   transition: all.40s;
   height: auto;
 }

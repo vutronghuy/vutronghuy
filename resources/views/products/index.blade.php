@@ -10,7 +10,9 @@
             <a href="{{ url('/create_category') }}" class="btn btn-info btn-sm">
                 Create new category
             </a>
-
+            <a href="{{ url('/menu') }}" class="btn btn-info btn-sm">
+                Back
+            </a>
             <div class="table-responsive">
                 <table class="table">
                     <thead>

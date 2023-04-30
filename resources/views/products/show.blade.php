@@ -2,31 +2,6 @@
 
 
 @section('content')
-    <div class="navbar">
-        <div class="logo">
-            <a href="/home"><img src="{{ asset('image/logo.png')}}"></a>
-            <a href="/home"><img src="{{ asset('image/lo.png')}}"></a>
-            <a href="/home"><img src="{{ asset('image/king.png')}}"></a>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/menu">Menu</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/cart">Cart</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="nav-icon">
-            <a href="/"><i class='bx bx-search'></i></a>
-            <a href="/cart"><i class='bx bx-cart'></i></a>
-
-        </div>
-    </div>
-    {{-- <div class="row">
-        <a href="{{url('/menu')}}" class="btn btn-primary">Back</a>
-    </div> --}}
     <form action="{{ route('add') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -52,12 +27,12 @@
                     </div>
                 </div>
                 <div class="Quan">
-                    {{-- <form method="POST" action="">
+                    <form method="POST" action="">
                         @csrf
                         <div class="form-group" >
                             <label for="quantity">Quantity:</label>
                         </div>
-                    </form> --}}
+                    </form>
                 </div>
                 
                 

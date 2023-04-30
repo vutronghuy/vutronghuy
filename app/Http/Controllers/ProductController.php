@@ -158,7 +158,7 @@ class ProductController extends Controller
                 break;
         }
 
-        $products = $query->paginate(5);
+        $products = $query->paginate(6);
         $categories = Category::all();
 
         return view('frontend.menu', compact('products', 'categories'));

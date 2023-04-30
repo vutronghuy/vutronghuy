@@ -22,7 +22,7 @@
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="/menu">Menu</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/cart">Cart</a></li>
+            <li><a href="/shopping_cart">Cart</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
 
@@ -33,7 +33,7 @@
                     <i class="bx bx-search" style="padding: 4px;"></i>
                 </button>
             </form> 
-            <a href="/cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>
+            <a href="/shopping_cart"><i class='bx bx-cart' style="margin-left: 10px; "></i></a>
         
         </div>
     </header>
@@ -242,19 +242,6 @@
             <h2>Thanh Cong</h2>
             <p>Student in Xay Dung</p>
 
-        </div>
-    </section>
-    {{-- update new section --}}
-    <section class="Update-news">
-        <div class="up-center-text">
-            <h2>New Updates</h2>
-        </div>
-
-        <div class="update-cart">
-            <div class="cart">
-                <img src="" alt="">
-                <h5></h5>
-            </div>
         </div>
     </section>
     {{-- contact section --}}\
