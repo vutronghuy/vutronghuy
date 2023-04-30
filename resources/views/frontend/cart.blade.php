@@ -63,7 +63,7 @@
                                         </td>
 
                                         <td>{{ $cartItem->product->name }}</td>
-                                        <td>{{ $cartItem->product->price }}$</td>
+                                        <td>{{ $cartItem->product->price }}vnđ</td>
                                         <form action="{{ route('cart.update', $cartItem->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
@@ -97,7 +97,7 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="5"><strong>Total:</strong></td>
-                                    <td><strong>{{ $totalPrice }}$</strong></td>
+                                    <td><strong>{{ $totalPrice }}vnđ</strong></td>
 
                                 </tr>
                             </tbody>
